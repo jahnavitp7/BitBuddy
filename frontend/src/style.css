@@ -1,0 +1,394 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap");
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #34284c;
+  background: #faf9ff;
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #bca5fa;
+  outline-offset: 2px;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Nunito", sans-serif;
+}
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+p {
+  line-height: 1.6;
+}
+code,
+pre {
+  font-family: "JetBrains Mono", monospace;
+}
+.eyebrow {
+  color: #9b6edb;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+.muted {
+  color: #9b92aa;
+  font-size: 13px;
+}
+.tiny {
+  font-size: 11px;
+}
+.simulator-app {
+  min-height: 100vh;
+}
+.simulator-header {
+  height: 68px;
+  background: #fff;
+  border-bottom: 1px solid #eae2f5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(16px, 3vw, 48px);
+}
+.simulator-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: #453267;
+  font:
+    900 23px "Nunito",
+    sans-serif;
+}
+.simulator-brand-icon {
+  width: 39px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: #eee3ff;
+  color: #8958d8;
+  font-size: 26px;
+}
+.simulator-brand small {
+  display: block;
+  font:
+    600 10px "DM Sans",
+    sans-serif;
+  color: #9a8eae;
+  margin-top: -3px;
+}
+.simulator-course {
+  font-size: 12px;
+  color: #8a64c7;
+  background: #f3edff;
+  padding: 8px 13px;
+  border-radius: 99px;
+  font-weight: 800;
+}
+.simulator-main {
+  width: 100%;
+  max-width: none;
+  padding: 26px clamp(16px, 3vw, 48px) 48px;
+  margin: 0 auto;
+}
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.panel-heading h3 {
+  margin: 0;
+  font-size: 15px;
+}
+@media (max-width: 560px) {
+  .simulator-header {
+    height: 60px;
+  }
+  .simulator-main {
+    padding: 18px 12px 30px;
+  }
+  .simulator-course {
+    font-size: 10px;
+  }
+}
+
+/* Educational memory diagram and ASCII reference */
+.memory-education .panel-heading,
+.ascii-reference .panel-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+.memory-concept-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #7656ae;
+  background: #f0e8ff;
+  padding: 6px 9px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+.memory-disclaimer {
+  font-size: 12px;
+  line-height: 1.65;
+  color: #655a78;
+  background: #faf6ff;
+  border: 1px solid #eee4ff;
+  border-radius: 12px;
+  padding: 12px;
+  margin: 12px 0;
+}
+.memory-education-grid {
+  display: grid;
+  grid-template-columns: minmax(125px, 1fr) minmax(150px, 1.15fr);
+  gap: 14px;
+}
+.memory-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.memory-edge {
+  text-align: center;
+  color: #8a7b9b;
+  font-size: 10px;
+  padding: 4px;
+}
+.memory-segment {
+  border: 2px solid transparent;
+  border-radius: 9px;
+  padding: 10px 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  color: #352948;
+  font: inherit;
+}
+.memory-segment strong {
+  font-size: 13px;
+}
+.memory-segment small {
+  font-size: 10px;
+  color: #635875;
+}
+.memory-segment.selected {
+  border-color: #9163d9;
+  box-shadow: 0 0 0 2px #f0e8ff;
+}
+.memory-segment:focus-visible {
+  outline: 3px solid #7852d0;
+  outline-offset: 2px;
+}
+.memory-segment-details {
+  padding: 7px 0;
+  min-width: 0;
+}
+.memory-segment-details h4 {
+  font-size: 19px;
+  color: #3d2b58;
+  margin: 9px 0;
+}
+.memory-segment-details p {
+  font-size: 12px;
+  line-height: 1.65;
+  color: #615575;
+}
+.memory-live-cpu {
+  background: #f7f3ff;
+  border-radius: 11px;
+  padding: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 11px;
+  margin: 12px 0;
+}
+.memory-live-cpu strong {
+  color: #473468;
+}
+.memory-live-cpu span {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.memory-live-cpu code {
+  font-weight: 700;
+  color: #7650ad;
+}
+.memory-note {
+  display: block;
+  font-size: 10px;
+  line-height: 1.5;
+  color: #8b7f9a;
+}
+.ascii-search {
+  width: 100%;
+  border: 1px solid #e7dcf5;
+  border-radius: 10px;
+  padding: 11px;
+  margin: 9px 0 11px;
+  font: inherit;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+.ascii-scroll {
+  max-height: 290px;
+  overflow: auto;
+  border: 1px solid #eee8f6;
+  border-radius: 11px;
+}
+.ascii-scroll table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 11px;
+  text-align: left;
+}
+.ascii-scroll th {
+  position: sticky;
+  top: 0;
+  background: #f5efff;
+  color: #65527d;
+}
+.ascii-scroll td,
+.ascii-scroll th {
+  padding: 8px 10px;
+  border-bottom: 1px solid #f1ecf6;
+}
+.ascii-scroll tbody tr:nth-child(even) {
+  background: #fcfaff;
+}
+.ascii-scroll td:nth-child(2),
+.ascii-scroll td:nth-child(3) {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+}
+@media (max-width: 500px) {
+  .memory-education-grid {
+    grid-template-columns: 1fr;
+  }
+  .memory-diagram {
+    max-width: 100%;
+  }
+}
+
+/* BitBuddy light/dark mode */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d8c9ef;
+  border-radius: 999px;
+  padding: 10px 17px;
+  background: #f3edff;
+  color: #7951b8;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.theme-toggle:hover {
+  filter: brightness(0.97);
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  background: #171321;
+  color: #f3eaff;
+}
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] .simulator-app {
+  background: #171321;
+  color: #f3eaff;
+}
+:root[data-theme="dark"] .simulator-header {
+  background: #211a2d;
+  border-color: #40324f;
+}
+:root[data-theme="dark"] .simulator-brand {
+  color: #f3eaff;
+}
+:root[data-theme="dark"] .simulator-brand small {
+  color: #c2b3d5;
+}
+:root[data-theme="dark"] .simulator-brand-icon {
+  background: #3c2d53;
+  color: #c7a4ff;
+}
+:root[data-theme="dark"] .theme-toggle {
+  background: #3c2d53;
+  border-color: #665080;
+  color: #ead9ff;
+}
+:root[data-theme="dark"] .eyebrow,
+:root[data-theme="dark"] .muted,
+:root[data-theme="dark"] .memory-note {
+  color: #c0acd7;
+}
+:root[data-theme="dark"] .memory-disclaimer,
+:root[data-theme="dark"] .memory-live-cpu {
+  background: #2c223b;
+  border-color: #534364;
+  color: #e2d7ef;
+}
+:root[data-theme="dark"] .memory-live-cpu strong,
+:root[data-theme="dark"] .memory-live-cpu code,
+:root[data-theme="dark"] .memory-segment-details h4 {
+  color: #e9d9ff;
+}
+:root[data-theme="dark"] .memory-segment-details p,
+:root[data-theme="dark"] .memory-segment small {
+  color: #cbbbdc;
+}
+:root[data-theme="dark"] .memory-segment {
+  color: #f2eaff;
+}
+:root[data-theme="dark"] .memory-concept-label {
+  background: #49335f;
+  color: #e4cfff;
+}
+:root[data-theme="dark"] .ascii-search,
+:root[data-theme="dark"] .ascii-scroll {
+  background: #251e32;
+  border-color: #534364;
+  color: #f2eaff;
+}
+:root[data-theme="dark"] .ascii-scroll th {
+  background: #3a2c4e;
+  color: #e6d6f8;
+}
+:root[data-theme="dark"] .ascii-scroll td,
+:root[data-theme="dark"] .ascii-scroll th {
+  border-color: #4b3a5f;
+}
+:root[data-theme="dark"] .ascii-scroll tbody tr:nth-child(even) {
+  background: #30253f;
+}
